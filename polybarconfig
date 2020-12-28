@@ -18,13 +18,13 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #00070f
+background = #050505
 ;background-alt = #444
-background-alt = #001f2f
+background-alt = #151515
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
+primary = #ff5800
 secondary = #e60053
 alert = #bd2c40
 
@@ -388,7 +388,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = Volume: %percentage%%
+label-volume = Volume: 
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
