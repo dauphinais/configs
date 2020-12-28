@@ -55,8 +55,9 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
+font-3 = Font Awesome 5 Free Solid:pixelsize=11;2
 
-modules-left = i3 mpd
+modules-left = i3
 modules-center = mpd
 modules-right = filesystem pulseaudio xkeyboard memory cpu wlan date 
 PS1='\e[1;36m\]\W \e[0;0m\]'
@@ -107,8 +108,8 @@ font-0 = fixed:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3 mpd
-modules-center = mpd
+modules-left = i3
+;modules-center = 
 modules-right = filesystem pulseaudio xkeyboard memory cpu wlan date 
 PS1='\e[1;36m\]\W \e[0;0m\]'
 
@@ -281,15 +282,22 @@ label-urgent-padding = 2
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song>  <icon-prev> <icon-seekb>  <toggle>  <icon-seekf> <icon-next>  <label-time>
+
+interval = 1
+host = 127.0.0.1
+port = 6601
 
 icon-prev = 
+icon-seekb = 
 icon-stop = 
 icon-play = 
 icon-pause = 
+icon-seekf = 
 icon-next = 
 
-label-song-maxlen = 25
+
+label-song-maxlen = 50
 label-song-ellipsis = true
 
 [module/xbacklight]
