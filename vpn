@@ -4,6 +4,10 @@
 # Prompts user for which server they'd like to connect to
 
 # openvpn --config /home/jacob/PrivateVPN/PrivateVPN-TUN/UDP/*
+if [ $(whoami) != "root" ]; then
+	echo "Root access required. Please try again using sudo."
+	exit
+fi
 
 echo "Enter server country (usa, sweden, canada, uk)"
 read server
