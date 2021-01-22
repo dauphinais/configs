@@ -23,7 +23,7 @@ background = #050505
 background-alt = #151515
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #cccccc
 primary = #ff5800
 secondary = #e60053
 alert = #bd2c40
@@ -55,11 +55,13 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = Font Awesome 5 Free Solid:pixelsize=11;2
+font-3 = "FontAwesome:style=Regular;4"
+font-4 = "Font Awesome 5 Free Regular:style=Regular;4"
+font-5 = "Font Awesome 5 Free Solid:style=Solid;4"
 
 modules-left = i3
-modules-center = mpd
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan date powermenu
+modules-center = 
+modules-right = filesystem pulseaudio memory cpu wlan battery date powermenu
 PS1='\e[1;36m\]\W \e[0;0m\]'
 
 tray-position = right
@@ -214,7 +216,6 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /Storage
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -328,7 +329,7 @@ interval = 2
 ;format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
-label = CPU: %percentage:2%%
+label =  %percentage:2%%
 
 [module/memory]
 type = internal/memory
@@ -336,7 +337,7 @@ interval = 2
 ;format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = Memory: %percentage_used%%
+label =   %percentage_used%%
 
 [module/wlan]
 type = internal/network
@@ -456,27 +457,31 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 ;format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-;ramp-capacity-0 = 
-;ramp-capacity-1 = 
-;ramp-capacity-2 = 
+ramp-capacity-0 =
+ramp-capacity-1 =
+ramp-capacity-2 =
+ramp-capacity-3 =
+ramp-capacity-4 =
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-;animation-charging-0 = 
-;animation-charging-1 = 
-;animation-charging-2 = 
+animation-charging-0 =
+animation-charging-1 =
+animation-charging-2 =
+animation-charging-3 =
+animation-charging-4 =
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-;animation-discharging-0 = 
-;animation-discharging-1 = 
-;animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
