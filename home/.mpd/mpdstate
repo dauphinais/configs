@@ -1,0 +1,25 @@
+sw_volume: 100
+audio_device_state:1:pulse audio
+audio_device_state:1:ncmpcpp visualizer
+state: play
+current: 9
+time: 119.865000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Paul Mccartney - Greatest Songs (2018) Mp3 (320kbps) [Hunter]/Paul Mccartney - Greatest Songs (2018)/17 - Maybe I'm Amazed.mp3
+1:Matchbox Twenty/More Than You Think You Are/09 Downfall.mp3
+2:Matchbox Twenty/More Than You Think You Are/10 Soul.mp3
+3:Matchbox Twenty/More Than You Think You Are/11 You're So Real.mp3
+4:Matchbox Twenty/More Than You Think You Are/12 The Difference.mp3
+5:Pink Floyd - Meddle (1971) (UK LP 24-96 PBTHAL) [FLAC] vtwin88cube/01.-One Of These Days.flac
+6:Pink Floyd - Meddle (1971) (UK LP 24-96 PBTHAL) [FLAC] vtwin88cube/06.-Echoes.flac
+7:The_Allman_Brothers_Band-Brothers_And_Sisters-_Super_Deluxe_Edition_-4CD-2013-404[rarbg]/104-the_allman_brothers_band-jelly_jelly.mp3
+8:The_Allman_Brothers_Band-Brothers_And_Sisters-_Super_Deluxe_Edition_-4CD-2013-404[rarbg]/107-the_allman_brothers_band-pony_boy.mp3
+9:Matchbox Twenty/Mad Season/06 Mad Season.mp3
+playlist_end

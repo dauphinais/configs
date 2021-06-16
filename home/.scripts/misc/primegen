@@ -1,0 +1,17 @@
+#!/bin/sh
+
+checkprime () {
+	for num in $(seq 3 2 $(echo "sqrt($1)" | bc))
+	do
+		[ "0" = "$(($1 % $num))" ] && return 0
+	done
+	echo $1
+}
+
+[ "" = "$1" ] && echo "No endpoint provided" && exit
+echo "1"
+echo "2"
+for num in $(seq 3 2 $1)
+do
+	checkprime $num
+done

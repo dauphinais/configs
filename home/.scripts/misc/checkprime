@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for num in $(seq 2 $(echo "sqrt($1)" | bc))
+do
+	[ "0" = $(($1 % $num)) ] && echo "$1 is composite" && exit
+done
+
+echo "$1 is prime"

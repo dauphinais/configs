@@ -1,0 +1,5 @@
+# X11
+xorg-server
+xorg
+xorg-xinit
+xorg-xbacklight

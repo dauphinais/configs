@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Directories of each filesystem
+NFS_DIR="/home/jacob/Music"
+REMOVABLE_MUSIC_DIR="/media/Music"
+HDD_MUSIC_DIR="/Storage/Music/Library"
+
+error () {
+	echo "$@"
+	exit
+}
+
+# Makes sure the user is not running as sudo. I don't know why, but it causes a bunch of errors for some reason.
+[ "root" = $(whoami) ] && error "Do not run as root" && exit
+
+# Import any music from removable storage if applicable
+echo "Importing music from removable storage..."
+cp -rn $REMOVABLE_MUSIC_DIR/* $HDD_MUSIC_DIR/ 2> /dev/null && echo "Done" || echo "No new music found on flash drive. Skipping"
+
+# Import music to nfs from HDD Music location
+[ -z = "ls $NFS_DIR" ] && "Music nfs not mounted. Exiting" && echo || echo "Music nfs detected. Adding music"
+cp -rn $HDD_MUSIC_DIR/* $NFS_DIR/ 2> /dev/null && echo "Done" || error "Failed to copy files to nfs directory"
+
+# Success
+echo "Done adding music"

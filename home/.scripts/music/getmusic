@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Directories and IPs
+MUSIC_SERVER_IP=192.168.1.100
+SERVER_MUSIC_DIRECTORY=/home/pi/Music/Library
+MPD_DIRECTORY=/home/jacob/Music
+
+# Informs user of any errors, then exits
+error () {
+	echo "$@"
+	exit
+}
+
+[ "root" = $(whoami) ] || error "Run as root"
+
+# Ping music server to ensure connectivity - Catch errors and inform user
+echo "Finding server $MUSIC_SERVER_IP..." ; ping -c 1 $MUSIC_SERVER_IP > /dev/null && echo "Success" || error "Couldn't find server $MUSIC_SERVER_IP. Exiting"
+
+# Mount nfs filesystem - Catch errors and inform user
+echo "Syncing directory $SERVER_MUSIC_DIRECTORY to $MPD_DIRECTORY..." && mount $MUSIC_SERVER_IP:$SERVER_MUSIC_DIRECTORY $MPD_DIRECTORY && echo "Successfully mounted music to $MPD_DIRECTORY" || error "Failed to get music from $MUSIC_SERVER_IP:$SERVER_MUSIC_DIRECTORY. Exiting"

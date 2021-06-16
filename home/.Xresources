@@ -1,0 +1,8 @@
+URxvt.font: 		xft:SourceCodePro-Bold:size=12
+URxvt.background:	rgba:0000/0700/0f00/fa00 
+URxvt.foreground:	#7fb4ff
+URxvt.scrollBar:	false
+URxvt.depth: 		32
+
+XTerm.vt100.background:	rgb:00/07/0f
+XTerm.vt100.foreground:	rgb:7f/b4/ff

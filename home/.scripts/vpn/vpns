@@ -1,0 +1,12 @@
+#!/bin/sh
+
+VPN_DIR=/home/jacob/PrivateVPN/PrivateVPN-TUN/UDP
+
+SELECTION=$(ls $VPN_DIR |
+sed 's/^.*PrivateVPN-//g' |
+sed 's/-TUN.*$//g' |
+
+rofi $(rofi-settings prompt) -dmenu -p "Select VPN Server")
+
+[ -z "$SELECTION" ] || SELECTION=$(echo "$VPN_DIR/PrivateVPN-$SELECTION-TUN-1194.ovpn" | sed 's/ /\\ /g')
+[ -z "$SELECTION" ] || echo "sudo openvpn --config $SELECTION" | xargs st -e 

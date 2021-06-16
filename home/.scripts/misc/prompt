@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ $(printf "no\nyes" | rofi -dmenu -theme /home/jacob/.config/rofi/dmenu-prompt.rasi -p "Launch $1?") = "yes" ] && exec $1
