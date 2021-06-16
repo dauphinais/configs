@@ -16,7 +16,7 @@ super + r
 
 # firefox
 super + i
-	firefox-bin
+	firefox
 
 #
 # bspwm hotkeys
@@ -27,8 +27,12 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
+#super + q
+#	bspc node -{c,k}
+
+# close
 super + q
-	bspc node -{c,k}
+	bspc node -c
 
 # alternate between the tiled and monocle layout
 super + f
@@ -39,16 +43,20 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+# super + g
+#	bspc node -s biggest.window
 
 #
 # state/flags
 #
 
 # set the window state
-super + {t,shift + t,s,f}
+super + {t,alt + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# toggle floating mode
+super + alt + space
+	bspc node -t '~floating'
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -59,12 +67,19 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+super + {h,j,k,l}
+	dir={west,south,north,east}; bspc node "$dir" -f || bspc monitor "$dir" -f
 
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+# swap the node with the given direction
+super + shift + {h,j,k,l}
+	bspc node -s {west,south,north,east}
+
+super + {comma,period}
+	bspc monitor {west,east} -f
+
+### focus the node for the given path jump
+# super + {p,b,comma,period}
+#	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + } i
@@ -88,6 +103,7 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+# focus or send to the given desktop
 super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
@@ -148,8 +164,10 @@ XF86MonBrightnessUp
 
 # Other cool functions
 super + Print
-	scrot "/home/jacob/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
+	scrot "/Storage/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
 shift + super + Print
-	scrot -s "/home/jacob/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
+	scrot -s "/Storage/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
 XF86Calculator
-	qalculate-gtk
+	mate-calculator
+super + shift + v
+	exec /home/jacob/.scripts/vpn/vpns
