@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# ~/ Cleanup
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export LESSHISTFILE="/dev/null"
+export WGETRC="$HOME/.config/wget/wgetrc"
+export ZDOTDIR="$HOME/.config/zsh"
+export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
