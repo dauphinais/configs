@@ -8,16 +8,39 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show drun
+	rofi -modi drun -theme /home/jacob/.config/rofi/themes/glue_pro_blue_no_prompt.rasi -show drun
+
+# window switcher
+super + w
+	rofi -theme /home/jacob/rofi/themes/glue_pro_blue.rasi -show window
 
 # make sxhkd reload its configuration files:
 super + r
 	pkill -USR1 -x sxhkd
 
+# browser
 # firefox
 super + i
-	firefox
+	firefox-bin
+super + b
+	/home/jacob/Misc/Scripts/books
+super + n
+	/home/jacob/Misc/Scripts/datasheets
+super + m
+	pcmanfm
 
+# chromium
+super + shift + i
+	/usr/lib64/chromium/ungoogled-chromium_87.0.4280.141-1.1_linux/chrome-wrapper
+
+super + shift + v
+	exec /home/jacob/Misc/Scripts/vpns
+
+super + alt + m
+	exec /home/jacob/Misc/Scripts/mountusb
+
+super + Escape
+	slock
 #
 # bspwm hotkeys
 #
@@ -27,10 +50,6 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-#super + q
-#	bspc node -{c,k}
-
-# close
 super + q
 	bspc node -c
 
@@ -43,20 +62,16 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
-# super + g
-#	bspc node -s biggest.window
+super + g
+	bspc node -s biggest.window
 
 #
 # state/flags
 #
 
 # set the window state
-super + {t,alt + t,s,f}
+super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
-# toggle floating mode
-super + alt + space
-	bspc node -t '~floating'
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -67,19 +82,12 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {h,j,k,l}
-	dir={west,south,north,east}; bspc node "$dir" -f || bspc monitor "$dir" -f
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
 
-# swap the node with the given direction
-super + shift + {h,j,k,l}
-	bspc node -s {west,south,north,east}
-
-super + {comma,period}
-	bspc monitor {west,east} -f
-
-### focus the node for the given path jump
-# super + {p,b,comma,period}
-#	bspc node -f @{parent,brother,first,second}
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + } i
@@ -103,7 +111,6 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-# focus or send to the given desktop
 super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
@@ -127,7 +134,7 @@ super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
+super + space
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
@@ -164,10 +171,8 @@ XF86MonBrightnessUp
 
 # Other cool functions
 super + Print
-	scrot "/Storage/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
+	scrot "/home/jacob/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
 shift + super + Print
-	scrot -s "/Storage/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
+	scrot -s "/home/jacob/Pictures/Screenshots/$(date +%m-%d-%Y_%H:%M:%S).jpg"
 XF86Calculator
-	mate-calculator
-super + shift + v
-	exec /home/jacob/.scripts/vpn/vpns
+	qalculate-gtk
